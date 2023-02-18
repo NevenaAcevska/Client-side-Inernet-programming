@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ZADACA 1</title>
+    <style>
+        label{
+            display: block;
+            padding:5px;
+        }
+        table{
+            border:1px solid black;
+        }
+        table th{
+            border: 2px solid black;
+        }
+        table td{
+            border: 2px solid black;
+        }
+        table tr{
+            border: 2px solid black;
+        }
+
+    </style>
+</head>
+<body>
+
+<form>
+    <label>Име<input id="ime"></label>
+    <label>Презиме<input id="prezime"></label>
+    <label>Индекс<input id="indeks"></label>
+    <label>Предмет<input id="predmet"></label>
+    <label> Оценка <select id="ocenka">
+
+        <option> 5 </option>
+        <option> 6 </option>
+        <option> 7 </option>
+        <option> 8 </option>
+        <option> 9 </option>
+        <option> 10 </option>
+
+    </select></label>
+
+    <input type="button" value="Внеси" id="btn" onclick = "addRow()">
+
+</form>
+
+<table id="students">
+    <thead>  <th>Име</th> <th>Презиме</th> <th>Индекс</th>  <th>Предмет</th> <th>Оценка</th>  </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js "></script>
+<script type="javascript"></script>
+<script>
+
+    var niza = [];
+
+    function addRow() {
+        var tableRef = document.getElementById('students').getElementsByTagName('tbody')[0];
+        var ime = document.getElementById('ime');
+        var prezime = document.getElementById('prezime');
+        var indeks = document.getElementById('indeks');
+        var predmet = document.getElementById('predmet');
+        var ocenka = document.getElementById('ocenka');
+
+        if(ime.value == "" || prezime.value == "" || indeks.value == "" || predmet.value == "") {
+            alert("All values are not entered.");
+            return;
+        }
+
+        var ocenkaObject = {ime:ime.value, prezime:prezime.value, indeks:indeks.value, predmet:predmet.value, ocenka:ocenka.value};
+        niza.push(ocenkaObject);
+        console.log(niza);
+
+        var newRow = tableRef.insertRow(tableRef.rows.length);
+
+        var newCell0 = newRow.insertCell(0);
+
+        var newCell1 = newRow.insertCell(1);
+
+        var newCell2 = newRow.insertCell(2);
+        var newCell3 = newRow.insertCell(3);
+        var newCell4 = newRow.insertCell(4);
+
+        newCell0.innerHTML = ime.value;
+        newCell1.innerHTML = prezime.value;
+        newCell2.innerHTML = indeks.value;
+        newCell3.innerHTML = predmet.value;
+        newCell4.innerHTML = ocenka.value;
+
+        ime.value = "";
+        prezime.value = "";
+        indeks.value = "";
+        predmet.value = "";
+        ocenka.value = 5;
+
+    }
+</script>

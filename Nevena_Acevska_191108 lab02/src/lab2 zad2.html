@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LAB2 ZAD2</title>
+    <script>
+        function display_random_image()
+        {
+            var sliki=[];
+            sliki[0] = "<img src='https://designmodo.com/wp-content/uploads/2014/07/free-photos.jpg' >";
+            sliki[1] = "<img src='https://farm5.staticflickr.com/4060/4567292488_5d3f4b05f6_z.jpg' >";
+            sliki[2] = "<img src='https://wallup.net/wp-content/uploads/2017/03/28/401266-landscape-road-forest-748x421.jpg' >";
+            var broj = Math.floor(Math.random()*sliki.length);
+
+            document.write(sliki[broj]);
+        }
+    </script>
+</head>
+<body>
+<div>
+    <input type="button" onclick=display_random_image() value="Click Me">
+</div>
+</body>
+</html>

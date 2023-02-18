@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ZADACA 3</title>
+    <script type="javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        function promeni() {
+
+            var x = $("input[type='radio'][name='izbor']:checked").val();
+            if(x == 'color'){
+                document.getElementById("container").style.backgroundImage= "none";
+                var color = $("#value").val();
+                document.getElementById("container").style.backgroundColor = color;
+            }
+            else{
+                document.getElementById("container").style.backgroundColor = "white";
+                var link = document.getElementById("value").value;
+                document.getElementById("container").style.backgroundImage = "url('" + link + "')";
+            }
+        }
+    </script>
+    <style>
+        label{
+            display: block;
+            padding: 10px;
+            margin: 10px;
+        }
+        div{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <label id="radios">
+        Color <input type="radio" name="izbor" value="color" >
+        Image <input type="radio" name="izbor" value="image">
+    </label>
+
+    <label>
+        Value <input type="text" id="value">
+    </label>
+    <label>
+        <input type="button" id="btn" onclick="promeni()" value="Промени">
+    </label>
+</div>
+
+</body>
+</html>

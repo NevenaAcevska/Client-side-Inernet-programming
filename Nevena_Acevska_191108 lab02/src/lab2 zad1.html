@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LAB2 ZAD1</title>
+    <script type="text/javascript">
+
+        function removecolor()
+        {
+            var boja=document.getElementById("colorSelect").value;
+            console.log(boja);
+            var rmv=document.getElementById("colorSelect");
+            rmv.remove(rmv.selectedIndex);
+        }
+    </script>
+</head>
+<body>
+<form>
+    <select id="colorSelect">
+        <option>Red</option>
+        <option>Green</option>
+        <option>White</option>
+        <option>Black</option>
+    </select>
+    <input type="button" onclick="removecolor()" value="Select and Remove"><br>
+</form>
+
+</body>
+</html>

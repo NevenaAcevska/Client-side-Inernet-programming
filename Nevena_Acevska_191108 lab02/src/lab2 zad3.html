@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About me</title>
+    <script>
+        function change() {
+            document.body.style.fontFamily="Ariel";
+            document.getElementById("име").innerHTML="Невена Ацевска"
+            document.getElementById("индекс").innerHTML="191108";
+            document.getElementById("град").innerHTML="Скопје";
+            document.getElementById("list").style.backgroundColor="red";
+
+        }
+    </script>
+</head>
+<body>
+<h1>About Me</h1>
+<ul id="list">
+    <li>Име: <span id="име"></span>
+    <li>Индекс: <span id="индекс"></span>
+    <li>Град: <span id="град"></span>
+</ul>
+<input type="button" value="Change" onclick="change()">
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zadaca 4</title>
+    <script type="text/javascript">
+        function Book (title,author,alreadyRead) {
+            this.title = title;
+            this.author = author;
+            this.alreadyRead = alreadyRead;
+        }
+        var bookList = new Array ();
+
+        bookList.push(new Book("Game of Thrones", "George RR Martin", true));
+        bookList.push(new Book("The Girl Before","JP Delany", true));
+        bookList.push(new Book("Forget me not","Ena Rosa", true));
+        bookList.push(new Book("Origin", "Dan Brown", false));
+        bookList.push(new Book("The Sun and Her Flowers","Rupi Kaur",false));
+        bookList.push(new Book("The Midnight Line","Lee Child",false));
+
+        for(var i=0;i<bookList.length;i++) {
+            if (bookList[i].alreadyRead) {
+                document.write("You have already read " + bookList[i].title + " by " + bookList[i].author +"<br>");
+            }
+            else {
+                document.write("You still need to read " + bookList[i].title + " by " + bookList[i].author +"<br>");
+            }
+        }
+    </script>
+</head>
+<body>
+<p>zadaca 4</p>
+</body>
+</html>

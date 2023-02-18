@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zadaca 3</title>
+    <script type="text/javascript">
+        class Cylinder {
+            constructor (radius, height) {
+                this.radius = parseInt(radius);
+                this.height = parseInt(height);
+            }
+            presmetajVolumen(){
+                return this.height*this.radius*this.radius*3.14;
+            }
+        }
+        function Volume() {
+            var cilindar = new Cylinder(parseInt(document.getElementById('Radius').value), parseInt(document.getElementById('Visina').value));
+            document.getElementById('Volumen').innerHTML = cilindar.presmetajVolumen();
+        }
+    </script>
+</head>
+<body>
+<h2>Volumen na cilindar</h2>
+<p>Vnesi radius</p>
+<p><input type="text" id="Radius"></p>
+<p>Vnesi visina</p>
+<p><input type="text" id="Visina"></p>
+<p><input type="button" value="Presmetaj volumen" onclick="Volume()"></p>
+<p id="Volumen"></p>
+</body>
+</html>

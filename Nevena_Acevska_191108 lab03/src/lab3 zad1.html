@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Zadaca1</title>
+<head>
+    <script>
+
+        function removeDoubles(x) {
+            x = x.getElementById('Array').split(" ");
+            var z=[];
+            var j=0;
+            var i=0,flag=false;
+            for (i=0;i<x.length;i++) {
+                for (var k=0;k<z.length;k++) {
+                    if(z[k]==x[i]) {
+                        flag=true;
+                        break;
+                    }
+                }
+                if (!flag){
+                    z[j]=x[i];
+                    j++;
+                }
+                flag=false;
+            }
+            documnet.getElementById("NizaBezDuplikati").innerHTML = z;
+            console.log(z);
+            return z;
+        }
+    </script>
+</head>
+
+<body>
+<h2>Brisi duplikati od lista</h2>
+<div>Vnesi gi elementite od listata</div> <br>
+<div><input type="text" id="Array"></div> <br>
+<div><input type="button" value="Brisi" onclick="removeDoubles(document.getElementById('Array').value)"></div> <br>
+<div id="NizaBezDuplikati"></div>
+</body>
+
+</html>

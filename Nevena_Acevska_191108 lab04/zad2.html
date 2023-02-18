@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ZADACA 2</title>
+
+    <script type="javascript"></script>
+    <script>
+        function generateForm() {
+            var niza = document.getElementById("text").value.split(",");
+            console.log(niza);
+            var select = document.getElementById("type").value;
+
+            if(select =="checkbox")
+            {
+                for(var i=0; i<niza.length; i++){
+                    document.getElementById("container").innerHTML = document.getElementById("container").innerHTML
+                        + '<input type="checkbox">' + niza[i];
+                }
+            }
+
+            else if(select == "radio") {
+                for(var i=0; i<niza.length;i++){
+                    document.getElementById("container").innerHTML = document.getElementById("container").innerHTML
+                        + '<input type="radio">' + niza[i];
+                }
+
+            }
+
+            document.getElementById("text").value = "";
+
+
+        }
+    </script>
+</head>
+<body>
+<div>
+    <label>Items:</label>
+    <input type="text" id="text">
+</div>
+<div>
+    <label>Type:</label>
+    <select id="type">
+        <option value="checkbox">Checkbox</option>
+        <option value="radio">Radio</option>
+    </select>
+</div>
+<div>
+    <input type="button" value="Add" id="generate" onclick="generateForm()">
+</div>
+<div id="container">
+</div>
+
+</body>
+</html>

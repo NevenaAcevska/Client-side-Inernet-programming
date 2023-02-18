@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ZADACA 2</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var $actions = document.getElementsByTagName("button"),
+                tryCount = 0, randomNumber = randomFromRange(1000, 9999),
+                $display = document.getElementById("prikaz"),
+                $tryCount = document.getElementById("obid"),
+                $guessInput = document.getElementById("guess");
+
+            function randomFromRange(min, max) {
+                return Math.ceil(Math.random() * (max - min) + min);
+            }
+
+            function verify(number) {
+                var onSameSpot = 0, contains = 0, num1 = randomNumber + '', num2 = number + '';
+
+                for(var i = 0; i < 4; i++) {
+                    if(num2.indexOf(num1[i]) > -1) {
+                        contains++;
+                        if(num2[i] == num1[i])
+                            onSameSpot++;
+                    }
+                }
+
+                return [contains, onSameSpot];
+            }
+
+            function guess() {
+                tryCount++;
+                var bingo = false;
+
+                if(tryCount <= 10) {
+                    $tryCount.innerHTML = tryCount;
+                    var hint = verify($guessInput.value);
+                    $display.innerHTML += "Има " + hint[0] + ", на место " + hint[1] + " " + $guessInput.value + "<br/>";
+                    if($guessInput.value == randomNumber) {
+                        $display.innerHTML += "ПОГОДОК!!!";
+                        bingo = true;
+                        tryCount = 10;
+                    }
+                }
+                if(tryCount == 10 && !bingo) {
+                    $display.innerHTML += "Не успеавте да го погодите бројот од 10 обиди. Бројот е " + randomNumber;
+                    return;
+                } else return;
+            }
+
+            function retry() {
+                randomNumber = randomFromRange(1000, 9999);
+                $tryCount.innerHTML = tryCount = 0;
+                $display.innerHTML = "";
+            }
+
+            $actions[0].addEventListener("click", guess);
+            $actions[1].addEventListener("click", retry);
+        });
+    </script>
+</head>
+<body>
+<div>
+    <div style="text-align:right; float:left">
+        <label>Обиди <span id="obid">0</span></label>
+        <p>Погодок: <input id="guess" style="width:150px"/></p>
+        <button>Погоди</button>
+        <button>Од почеток</button>
+    </div>
+</div>
+<br/>
+<div id="prikaz" style="clear: both"></div>
+</body>
+</html>

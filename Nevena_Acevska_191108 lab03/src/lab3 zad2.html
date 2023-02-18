@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadaca 2</title>
+    <script type="text/javascript">
+        function remove_array_element(x,a) {
+            x = x.split(" ");
+            var element = a;
+            var z = x.filter(function (x) {
+                return x!=a;
+            });
+            document.getElementById("Answer").innerHTML = z;
+            console.log(z);
+            return z;
+
+        }
+    </script>
+</head>
+<body>
+<h2>Brisi odreden element od niza</h2>
+<p>
+<div>Vnesi ja nizata</div> <br>
+<div><input type="text" id="Array"></div> <br>
+<div>Vnesi go elementot sto sakas da go izbrises</div> <br>
+<div><input type="text" id="Element"></div> <br>
+<div><input type="button" value="Brisi" onclick="remove_array_element(document.getElementById('Array').value, document.getElementById('Element').value)"></div> <br>
+</p>
+<p id="Answer"></p>
+</body>
+</body>
+</html>
